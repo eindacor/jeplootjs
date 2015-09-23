@@ -1,4 +1,4 @@
-JepLoot = {
+var JepLoot = {
 	'booRoll' : function(chance) {
 		try {
 			if (chance < 0 || chance > 1)
