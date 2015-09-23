@@ -1,6 +1,6 @@
 Package.describe({
   name: 'eindacords:jeplootjs',
-  version: '0.0.3',
+  version: '0.0.6',
   // Brief, one-line summary of the package.
   summary: 'This package contains loot-generating methods, created by Joe Pollack in 2015.',
   // URL to the Git repository containing the source code for this package.
@@ -12,13 +12,14 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.3');
-  api.addFiles('jeplootjs.js');
+  api.addFiles('jeplootjs.js', ['client', 'server']);
+  api.export("JepLoot", ['client', 'server']);
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('eindacords:jeplootjs');
-  api.addFiles('/jeplootjs-tests.js', ['client', 'server']);
-  api.addFiles('/jeplootjs.js', ['client', 'server']);
+  api.addFiles('jeplootjs-tests.js', ['client', 'server']);
+  api.addFiles('jeplootjs.js', ['client', 'server']);
   api.export("JepLoot", ['client', 'server']);
 });

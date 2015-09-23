@@ -32,7 +32,7 @@ JepLoot = {
 			if (max <= min)
 				throw "minimum value must be less than maximum value";
 
-			return Math.floor( numRoll( Math.floor(min), Math.ceil(max) ) );
+			return Math.floor( this.numRoll( Math.floor(min), Math.ceil(max) ) );
 		}
 
 		catch (error) {
@@ -46,17 +46,17 @@ JepLoot = {
 			var seed_range = 0;
 			var ranges = {};
 			for (var key in categories) {
-			    if (isNaN(categories.key))
+			    if (isNaN(categories[key]))
 			    	throw "at least one of the values passed is NaN";
 
-			    seed_range += categories.key;
-			    ranges.key = seed_range;
+			    seed_range += categories[key];
+			    ranges[key] = seed_range;
 			}
 
 			var random = Math.random() * seed_range;
 
 			for (var key in ranges) {
-				if (random < key)
+				if (random < ranges[key])
 					return key;
 			}
 		}
