@@ -1,0 +1,1 @@
+This package contains loot-generating methods, created by Joe Pollack in 2015.
